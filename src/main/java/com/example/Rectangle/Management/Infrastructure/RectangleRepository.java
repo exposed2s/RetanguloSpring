@@ -16,4 +16,8 @@ public interface RectangleRepository {
 	void deleteById(Integer id);
 
 	Rectangle save(Rectangle rectangle);
+
+	List<Rectangle> findRectanglesBySide1GreaterThanEqual(Integer side1);
+
+	List<Rectangle> findByArea(Integer area);
 }
