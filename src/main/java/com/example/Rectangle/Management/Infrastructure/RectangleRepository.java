@@ -19,5 +19,5 @@ public interface RectangleRepository {
 
 	List<Rectangle> findRectanglesBySide1GreaterThanEqual(Integer side1);
 
-	List<Rectangle> findByArea(Integer area);
+	List<Rectangle> findByArea(Double area);
 }

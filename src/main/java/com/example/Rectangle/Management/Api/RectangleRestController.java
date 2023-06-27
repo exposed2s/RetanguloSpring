@@ -32,7 +32,7 @@ public class RectangleRestController {
 	AddRectangleController addRectangleController;
 
 	@GetMapping
-	public List<Rectangle> findRectangle(@RequestParam(required = false) Integer length, @RequestParam(required = false) Integer area) {
+	public List<Rectangle> findRectangle(@RequestParam(required = false) Integer length, @RequestParam(required = false) Double area) {
 		if (area != null) {
 			return finderController.findByArea(area);
 		} else if (length != null) {

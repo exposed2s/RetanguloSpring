@@ -57,7 +57,7 @@ public class RepositoryRepoInMemoryImpl implements RectangleRepository {
 	}
 
 	@Override
-	public List<Rectangle> findByArea(Integer area) {
+	public List<Rectangle> findByArea(Double area) {
 		return null;
 	}
 

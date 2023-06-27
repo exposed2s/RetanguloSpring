@@ -15,8 +15,8 @@ public interface RepositoryRepoSpringData extends RectangleRepository, CrudRepos
 	@Query("SELECT r FROM Rectangle r WHERE r.side1 > ?1 or r.side2 > ?1 ")
 	List<Rectangle> findRectanglesBySide1GreaterThanEqual(Integer side1);
 
-	@Query("SELECT r FROM Rectangle r WHERE r.side1 * r.side2 = ?1 ")
-	List<Rectangle> findByArea(Integer area);
+	@Query("SELECT r FROM Rectangle r WHERE CAST(r.side1 * r.side2 as double) = ?1 ")
+	List<Rectangle> findByArea(Double area);
 
 
 }

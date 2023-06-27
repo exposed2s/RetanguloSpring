@@ -26,7 +26,7 @@ public class FindRectangleController {
 		return repo.findRectanglesBySide1GreaterThanEqual(side);
 	}
 
-	public List<Rectangle> findByArea(Integer area){
+	public List<Rectangle> findByArea(Double area){
 		return repo.findByArea(area);
 	}
 }
