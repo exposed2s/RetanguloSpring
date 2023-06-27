@@ -13,7 +13,7 @@ public interface RectangleRepository {
 
 	Optional<Rectangle> findById(Integer id);
 
-	void deleteRectangle(Integer id);
+	void deleteById(Integer id);
 
-	Optional<Rectangle> save(Rectangle rectangle);
+	Rectangle save(Rectangle rectangle);
 }

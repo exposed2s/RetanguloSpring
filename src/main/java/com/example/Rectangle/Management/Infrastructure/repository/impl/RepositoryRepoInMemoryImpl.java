@@ -36,19 +36,19 @@ public class RepositoryRepoInMemoryImpl implements RectangleRepository {
 	}
 
 	@Override
-	public void deleteRectangle(Integer id) {
-		rectangleList.remove(findById(id).get());
+	public void deleteById(Integer id) {
+		rectangleList.remove(findById(id));
 	}
 
 	@Override
-	public Optional<Rectangle> save(Rectangle rectangle) {
+	public Rectangle save(Rectangle rectangle) {
 		Optional<Rectangle> rec;
 		if (rectangle.getId() != null) {
-			return Optional.of(rectangle);
+			return rectangle;
 		}
 		rec = Optional.of(createRectangle(rectangle));
 		rectangleList.add(rec.get());
-		return rec;
+		return rec.get();
 	}
 
 	@Override
