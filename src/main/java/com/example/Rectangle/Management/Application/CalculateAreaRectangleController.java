@@ -12,7 +12,6 @@ import java.util.Optional;
 @Component
 public class CalculateAreaRectangleController {
 
-	@Qualifier("repositoryRepoSpringData")
 	@Autowired
 	RectangleRepository repo;
 

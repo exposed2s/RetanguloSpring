@@ -11,7 +11,6 @@ import java.util.Optional;
 @Component
 public class UpdateRectangleController {
 
-	@Qualifier("repositoryRepoSpringData")
 	@Autowired
 	RectangleRepository repo;
 

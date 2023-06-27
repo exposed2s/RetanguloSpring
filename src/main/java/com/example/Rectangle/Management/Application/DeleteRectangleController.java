@@ -11,7 +11,6 @@ import java.util.Optional;
 @Component
 public class DeleteRectangleController {
 
-	@Qualifier("repositoryRepoSpringData")
 	@Autowired
 	RectangleRepository repo;
 

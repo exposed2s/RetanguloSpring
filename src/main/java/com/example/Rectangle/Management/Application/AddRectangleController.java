@@ -13,7 +13,6 @@ import java.util.Optional;
 public class AddRectangleController {
 
 
-	@Qualifier("repositoryRepoSpringData")
 	@Autowired
 	RectangleRepository repo;
 
