@@ -1,4 +1,4 @@
-package com.example.Rectangle.Management.Infrastructure;
+package com.example.Rectangle.Management.Infrastructure.repository;
 
 import com.example.Rectangle.Management.Domain.Rectangle;
 
