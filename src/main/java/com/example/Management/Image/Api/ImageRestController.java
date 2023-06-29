@@ -1,5 +1,6 @@
 package com.example.Management.Image.Api;
 
+import com.example.Management.Image.Api.Dto.ImageDto;
 import com.example.Management.Image.Application.CreateUpdateImageController;
 import com.example.Management.Image.Application.DeleteImageController;
 import com.example.Management.Image.Application.FindImageController;
@@ -27,9 +28,9 @@ public class ImageRestController {
 	CreateUpdateImageController createUpdateImageController;
 
 	@GetMapping
-	public List<Image> findImage(@RequestParam(required = false) String name) {
+	public List<ImageDto> findImage(@RequestParam(required = false) String name) {
 		if (name != null) {
-			List<Image> arr =  findImageController.findByName(name);
+			List<ImageDto> arr =  findImageController.findByName(name);
 			if (arr.isEmpty()) {
 				throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 			}
@@ -41,17 +42,21 @@ public class ImageRestController {
 
 
 	@PutMapping("/{name}")
-	public Optional<Image> updateImage(@PathVariable("name") String name, @RequestBody CreateImageDto imageDto){
-		Optional<Image> rec = createUpdateImageController.createUpdateImage(name, imageDto);
-		if (rec.isEmpty()) {
+	public ImageDto createOrUpdateImage(@PathVariable("name") String name, @RequestBody CreateImageDto imageDto){
+		Optional<ImageDto> img = Optional.empty();
+
+		if (name != null) {
+			img = Optional.of(createUpdateImageController.createUpdateImage(name, imageDto));
+		}
+		if (img.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}
-		return rec;
+		return img.get();
 	}
 
 	@DeleteMapping("/{name}")
-	public Optional<Image> deleteImage(@PathVariable("name") String name){
-		Optional<Image> rec = deleteImageController.deleteImage(name);
+	public Optional<ImageDto> deleteImage(@PathVariable("name") String name){
+		Optional<ImageDto> rec = deleteImageController.deleteImage(name);
 		if (rec.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 		}

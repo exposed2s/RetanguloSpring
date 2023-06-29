@@ -1,5 +1,6 @@
 package com.example.Management.Rectangle.Api;
 
+import com.example.Management.Rectangle.Api.Dto.RectangleDto;
 import com.example.Management.Rectangle.Application.*;
 import com.example.Management.Rectangle.Api.Dto.CreateRectangleDto;
 import com.example.Management.Rectangle.Domain.Rectangle;
@@ -16,7 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/domain/rectangle")
 @RestController
 public class RectangleRestController {
-	private static AtomicLong counter = new AtomicLong();
+
 	@Autowired
 	FindRectangleController finderController;
 
@@ -44,7 +45,7 @@ public class RectangleRestController {
 	}
 
 	@PostMapping
-	public Rectangle addRectangle(@RequestBody CreateRectangleDto rectangleDto) {
+	public RectangleDto addRectangle(@RequestBody CreateRectangleDto rectangleDto) {
 		return addRectangleController.addRectangle(rectangleDto);
 	}
 

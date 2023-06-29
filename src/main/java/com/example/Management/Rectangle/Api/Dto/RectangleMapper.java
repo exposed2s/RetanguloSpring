@@ -13,4 +13,16 @@ public class RectangleMapper {
 	public static Rectangle toRect(CreateRectangleDto rectangleDto, Optional<Image> image) {
 		return image.map(value -> new Rectangle(rectangleDto.side1, rectangleDto.side2, value)).orElseGet(() -> toRect(rectangleDto));
 	}
+
+	public static RectangleDto toDto(Rectangle rectangle) {
+		RectangleDto dto = new RectangleDto();
+		if (rectangle.getImage() != null) {
+			dto.setName(rectangle.getImage().getName());
+			dto.setPath(rectangle.getImage().getPath());
+		}
+		dto.setId(rectangle.getId());
+		dto.setSide1(rectangle.getSide1());
+		dto.setSide2(rectangle.getSide2());
+		return dto;
+	}
 }
